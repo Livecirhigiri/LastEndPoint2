@@ -10,18 +10,6 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const rsvpRoutes = require("./api/routes/rsvp");
-
-app.use("/rsvp", rsvpRoutes);
-
-const QuestionRoutes = require("./api/routes/Question");
-
-app.use("/Question", QuestionRoutes);
-
-const meetUpRoutes = require("./api/routes/meetUp");
-
-app.use("/meetUp", meetUpRoutes);
-
 const userRoutes = require("./api/routes/user");
 
 app.use("/user", userRoutes);
