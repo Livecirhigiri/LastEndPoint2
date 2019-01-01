@@ -1,3 +1,6 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-cond-assign */
 const express = require("express");
 
 const router = express.Router();
