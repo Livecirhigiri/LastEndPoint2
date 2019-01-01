@@ -9,24 +9,17 @@ const bodyParser = require("body-parser");
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 const userRoutes = require("./api/routes/user");
 
 app.use("/user", userRoutes);
-=======
 const meetUpRoutes = require("./api/routes/meetUp");
 
 app.use("/meetUp", meetUpRoutes);
->>>>>>> meetUp
 
-=======
 const QuestionRoutes = require("./api/routes/Question");
 
 app.use("/Question", QuestionRoutes);
-// appel funstions
->>>>>>> Question
+// appel functions
 app.use((req, res, next) => {
   const error = new Error("not found ");
   error.status = 404;

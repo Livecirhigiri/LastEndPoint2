@@ -62,6 +62,7 @@ router.post("/", (req, res, next) => {
   meetUps.push(Question);
   Questions.push(Question);
 });
+// merge questions
 
 router.patch("/:id/upvote", (req, res, next) => {
   const Question = Questions.find(c => c.id === parseInt(req.params.id, 10));
