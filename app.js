@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 const QuestionRoutes = require("./api/routes/Question");
 
 app.use("/Question", QuestionRoutes);
-
+// appel funstions
 app.use((req, res, next) => {
   const error = new Error("not found ");
   error.status = 404;

@@ -59,7 +59,6 @@ router.post("/", (req, res, next) => {
     status: 200,
     data: [Question],
   });
-
   meetUps.push(Question);
   Questions.push(Question);
 });
