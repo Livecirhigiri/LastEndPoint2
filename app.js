@@ -10,9 +10,15 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
 const userRoutes = require("./api/routes/user");
 
 app.use("/user", userRoutes);
+=======
+const meetUpRoutes = require("./api/routes/meetUp");
+
+app.use("/meetUp", meetUpRoutes);
+>>>>>>> meetUp
 
 app.use((req, res, next) => {
   const error = new Error("not found ");
