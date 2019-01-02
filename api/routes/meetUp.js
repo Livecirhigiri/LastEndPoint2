@@ -38,20 +38,18 @@ const meetUps = [
 ];
 
 router.get("/upcoming", (req, res, next) => {
-  res.status(200).json({
-    status: 200,
-    data: [meetUps],
-  });
   const current = datetime();
   const upcoming = [];
-
   // eslint-disable-next-line no-undef
   for (let i = 0; (c = meetUps.length), i < c; i++) {
     if (current < meetUps[i].happenningOn) {
       upcoming.push(meetUps[i]);
     }
   }
-  res.send(upcoming);
+  res.status(200).json({
+    status: 200,
+    data: [upcoming],
+  });
 });
 
 // get requests for user
