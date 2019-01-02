@@ -69,12 +69,53 @@ describe("give your position about meetUp to attend", () => {
       });
   });
 });
-describe('Delete an existing meetup', () => {
-    it('Deleted question', (done) => {
+
+describe("Delete a meetUp", () => {
+  it("Deleted question for a meetup", (done) => {
+    request(app)
+      .delete("/meetup/2")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200, done);
+  });
+});
+
+describe("uncommon happen", () => {
+  describe("in case you dont found a specific meetUp", () => {
+    const error = {
+      status: 404,
+      error: "ID not found",
+    };
+    it("Given meetup Id not found", (done) => {
       request(app)
-        .delete('/meetups/1')
+        .get("/meetup/20")
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(404)
+        .expect(error)
+        .end((err) => {
+          if (err) return done(err);
+          done();
+        });
+    });
+  });
+});
+
+describe('Meetup not found', () => {
+    const error = {
+      status: 404,
+      error: 'the meetup with the given Id was not found'
+    };
+    it('Given meetup Id not found', (done) => {
+      request(app)
+        .post('/meetups/30/rsvps')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
-        .expect(200, done);
+        .expect(404)
+        .expect(error)
+        .end((err) => {
+          if (err) return done(err);
+          done();
+        });
     });
   });
