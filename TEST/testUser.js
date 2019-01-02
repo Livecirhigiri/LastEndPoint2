@@ -27,7 +27,7 @@ describe("Find a specific user", () => {
 describe("Specific user not found", () => {
   const error = {
     status: 404,
-    error: "the user with the given ID was not found"
+    error: "the user with the given ID was not found",
   };
   it("Given user Id not found", (done) => {
     request(app)
@@ -40,5 +40,22 @@ describe("Specific user not found", () => {
         if (err) return done(err);
         done();
       });
+  });
+});
+describe("Post request user", () => {
+  const user = {
+    id: 1,
+    firstname: "akilimali",
+    lastname: "willy",
+    email: "akwilly@gmail.com",
+    isAdmin: true,
+  };
+  it("Create a user", (done) => {
+    request(app)
+      .post("/user")
+      .send(user)
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200, done);
   });
 });
