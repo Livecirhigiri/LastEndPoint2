@@ -83,8 +83,8 @@ describe("Delete a meetUp", () => {
 describe("uncommon happen", () => {
   describe("in case you dont found a specific meetUp", () => {
     const error = {
-        status: 404,
-        error: "ID not found",
+      status: 404,
+      error: "ID not found",
     };
     it("Given meetup Id not found", (done) => {
       request(app)
@@ -118,23 +118,4 @@ describe("in case the meetup you want to attend unexsist", () => {
         done();
       });
   });
-});
-
-describe('in case you want to delete an existing meetup', ()  => {
-    const error = {
-        status: 404,
-        error: "the meetup with the given Id was not found",
-    };
-    it("no meetUp with this ID to be deleted", (done) => {
-         
-        .post("/meetUp/45")
-        .set("Accept"; "application/json")
-        .expect("content-Type", /json/)
-        .expect(404)
-        .expect(error)
-        .end((err) => {
-            if(err) return done(err);
-            done();
-        }):
-    });
 });

@@ -34,26 +34,12 @@ router.get("/:id", (req, res, next) => {
   if (!rsvp) {
     res.status(404).json({
       status: 404,
-      error: "the user with the given ID was not found",
+      error: "the rsvp with the given ID was not found",
     });
   } else {
     res.status(200).json({
       status: 200,
       data: [rsvp],
-    });
-  }
-});
-
-router.get("/:rsvpId", (req, res, next) => {
-  const id = req.params.rsvpId;
-  if (id === "special") {
-    res.status(200).json({
-      message: "here is the special ID",
-      id,
-    });
-  } else {
-    res.status(200).json({
-      message: "an ID is passed here",
     });
   }
 });
@@ -72,7 +58,7 @@ router.post("/:rsvpId", (req, res, next) => {
   }
 });
 // commit this
-router.patch("/:rsvpId", (req, res, next) => {
+router.patch("/:id", (req, res, next) => {
   res.status(200).json({
     message: "rsvp updated",
   });
@@ -82,5 +68,7 @@ router.delete("/:rsvpId", (req, res, next) => {
     message: "rsvp deleted Method",
   });
 });
+
+
 
 module.exports = router;
