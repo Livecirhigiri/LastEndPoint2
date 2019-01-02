@@ -110,12 +110,12 @@ router.post("/", (req, res, next) => {
     happeningOn: req.body.happeningOn,
     Tags: req.body.body,
   };
+  meetUps.push(meetUp);
+
   res.status(200).json({
     status: 200,
-    data: meetUp,
+    data: [meetUp],
   });
-
-  meetUps.push(meetUp);
 });
 
 router.patch("/:meetUpId", (req, res, next) => {
