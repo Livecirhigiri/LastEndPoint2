@@ -43,6 +43,45 @@ describe("in case you dont found your question", () => {
   });
 });
 
+describe("post request to Upvote question", () => {
+  it("increment user votes", (done) => {
+    request(app)
+      .patch("/Question/1/upvote")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200, done);
+  });
+});
+
+describe("post request to downvote question", () => {
+  it("decremente uservote ", (done) => {
+    request(app)
+      .patch("/Question/1/downvote")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200, done);
+  });
+});
+
+describe("Downvote a non existing question", () => {
+  const error = {
+    status: 404,
+    error: "the question with the given ID was not found",
+  };
+  it("not accept an invalid Id", (done) => {
+    request(app)
+      .patch("/Question/20/downvote")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(404)
+      .expect(error)
+      .end((err) => {
+        if (err) return done(err);
+        done();
+      });
+  });
+});
+
 describe("Post a question", () => {
   const Question = {
     id: 2,
@@ -58,31 +97,5 @@ describe("Post a question", () => {
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(200, done);
-  });
-});
-
-describe("post request to Upvote question", () => {
-    {
-        let size = parseInt(req.params.id, 10);
-    size -= 1;
-    let upVote = Questions[size].votes;
-    upVote++;
-    Questions[size].votes = upVote;
-    res.status(200).json({
-      status: 200,
-      data: [Question],
-    }
-   }
-  it("increment user votes", (done) => {
-    request(app)
-      .patch("/Question/1/upvote")
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
-      .except(404)
-      .expect(error);
-      .end((err) => {
-        if (err) return done(err);
-        done();
-      });
   });
 });
