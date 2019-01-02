@@ -88,16 +88,16 @@ router.post("/:meetupId/rsvps", (req, res, next) => {
       error: "Topic and Meetup are required",
     });
   } else {
-    const meetup = {
+    const rsvp = {
       // id: meetups.length +1,
       meetup: req.body.meetup,
       topic: req.body.topic,
       status: req.body.status,
     };
-    meetUps.push(meetup);
+    meetUps.push(rsvp);
     res.status(200).json({
       status: 200,
-      data: [meetup],
+      data: [rsvp],
     });
   }
 });

@@ -51,21 +51,30 @@ describe("Post a meetup to be attend", () => {
   });
 });
 
-describe("Respond to a meetup Rsvp", () => {
+describe("give your position about meetUp to attend", () => {
   const rsvp = {
     meetup: 1,
-    topic: "Machine learnings",
-    status: "maybe",
+    topic: "resovilng conflits ",
+    status: "yes",
   };
-  it("Create a meetup", (done) => {
+  it("post a meetup", (done) => {
     request(app)
       .post("/meetups/1/rsvps")
       .send(rsvp)
       .set("Accept", "application/json")
-      .expect(201)
+      .expect(404)
       .end((err) => {
         if (err) return done(err);
         done();
       });
   });
 });
+describe('Delete an existing meetup', () => {
+    it('Deleted question', (done) => {
+      request(app)
+        .delete('/meetups/1')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(200, done);
+    });
+  });
