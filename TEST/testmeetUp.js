@@ -24,3 +24,12 @@ describe("Upcoming meetups", () => {
       .expect(200, done);
   });
 });
+describe("Find meetup by his ID", () => {
+  it("Get a meetup by ID", (done) => {
+    request(app)
+      .get("/meetup/2")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200, done);
+  });
+});
