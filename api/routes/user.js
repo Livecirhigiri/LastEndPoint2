@@ -39,7 +39,7 @@ const users = [
 router.get("/", (req, res, next) => {
   res.status(200).json({
     status: 200,
-    data: users
+    data: [users]
   });
 });
 
