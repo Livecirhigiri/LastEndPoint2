@@ -39,7 +39,7 @@ const users = [
 router.get("/", (req, res, next) => {
   res.status(200).json({
     status: 200,
-    data: users
+    data: [users]
   });
 });
 
@@ -71,20 +71,6 @@ router.post("/", (req, res, next) => {
   });
 
   users.push(user);
-});
-
-router.post("/:userId", (req, res, next) => {
-  const id = req.params.userId;
-  if (id === "special") {
-    res.status(200).json({
-      message: "here is the special ID",
-      id: id
-    });
-  } else {
-    res.status(200).json({
-      message: "an ID is passed here"
-    });
-  }
 });
 //patch request
 router.patch("/:userId", (req, res, next) => {

@@ -37,7 +37,7 @@ router.get("/:id", (req, res, next) => {
   if (!Question) {
     res.status(404).json({
       status: 404,
-      error: "the course with the given ID was not found",
+      error: "the question with the given ID was not found",
     });
   } else {
     res.status(200).json({
@@ -55,11 +55,11 @@ router.post("/", (req, res, next) => {
     tittle: req.body.tittle,
     body: req.body.body,
   };
+
   res.status(200).json({
     status: 200,
     data: [Question],
   });
-  meetUps.push(Question);
   Questions.push(Question);
 });
 // merge questions
@@ -67,7 +67,7 @@ router.post("/", (req, res, next) => {
 router.patch("/:id/upvote", (req, res, next) => {
   const Question = Questions.find(c => c.id === parseInt(req.params.id, 10));
   if (!Question) {
-    res.status(404).send("the course with the given ID was not found");
+    res.status(404).send("the question with the given ID was not found");
   } else {
     let size = parseInt(req.params.id, 10);
     size -= 1;
@@ -84,7 +84,10 @@ router.patch("/:id/upvote", (req, res, next) => {
 router.patch("/:id/downvote", (req, res, next) => {
   const Question = Questions.find(c => c.id === parseInt(req.params.id, 10));
   if (!Question) {
-    res.status(404).send("the course with the given ID was not found");
+    res.status(404).json({
+      status: 404,
+      error: "the question with the given ID was not found",
+    });
   } else {
     let size = parseInt(req.params.id, 10);
     size -= 1;

@@ -90,16 +90,16 @@ router.post("/:meetupId/rsvps", (req, res, next) => {
       error: "Topic and Meetup are required",
     });
   } else {
-    const meetup = {
+    const rsvp = {
       // id: meetups.length +1,
       meetup: req.body.meetup,
       topic: req.body.topic,
       status: req.body.status,
     };
-    meetUps.push(meetup);
+    meetUps.push(rsvp);
     res.status(200).json({
       status: 200,
-      data: [meetup],
+      data: [rsvp],
     });
   }
 });
@@ -112,12 +112,12 @@ router.post("/", (req, res, next) => {
     happeningOn: req.body.happeningOn,
     Tags: req.body.body,
   };
+  meetUps.push(meetUp);
+
   res.status(200).json({
     status: 200,
-    data: meetUp,
+    data: [meetUp],
   });
-
-  meetUps.push(meetUp);
 });
 
 router.patch("/:meetUpId", (req, res, next) => {
