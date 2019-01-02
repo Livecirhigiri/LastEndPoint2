@@ -101,21 +101,21 @@ describe("uncommon happen", () => {
   });
 });
 
-describe('Meetup not found', () => {
-    const error = {
-      status: 404,
-      error: 'the meetup with the given Id was not found'
-    };
-    it('Given meetup Id not found', (done) => {
-      request(app)
-        .post('/meetups/30/rsvps')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(404)
-        .expect(error)
-        .end((err) => {
-          if (err) return done(err);
-          done();
-        });
-    });
+describe("in case the meetup you want to attend unexsist", () => {
+  const error = {
+    status: 404,
+    error: "the meetup with the given Id was not found",
+  };
+  it("Given meetup Id not found", (done) => {
+    request(app)
+      .post("/meetup/20/rsvps")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(404)
+      .expect(error)
+      .end((err) => {
+        if (err) return done(err);
+        done();
+      });
   });
+});
