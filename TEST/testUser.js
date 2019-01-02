@@ -23,3 +23,22 @@ describe("Find a specific user", () => {
       .expect(200, done);
   });
 });
+
+describe("Specific user not found", () => {
+  const error = {
+    status: 404,
+    error: "the user with the given ID was not found"
+  };
+  it("Given user Id not found", (done) => {
+    request(app)
+      .get("/user/13")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(404)
+      .expect(error)
+      .end((err) => {
+        if (err) return done(err);
+        done();
+      });
+  });
+});
