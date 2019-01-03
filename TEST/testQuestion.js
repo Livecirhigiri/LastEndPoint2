@@ -1,10 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable no-undef */
 const assert = require("chai").assert;
 const request = require("supertest");
 const app = require("../app");
-//testing Question file for every request
+// testing Question file for every request
 describe("Testing question with get request", () => {
   describe("display all questions", () => {
-    it("All Questions", done => {
+    it("All Questions", (done) => {
       request(app)
         .get("/Question")
         .set("Accept", "application/json")
@@ -15,7 +18,7 @@ describe("Testing question with get request", () => {
 });
 
 describe("define question to be found", () => {
-  it("Get a specific question", done => {
+  it("Get a specific question", (done) => {
     request(app)
       .get("/Question/2")
       .set("Accept", "application/json")
@@ -27,16 +30,16 @@ describe("define question to be found", () => {
 describe("in case you dont found your question", () => {
   const error = {
     status: 404,
-    error: "the question with the given ID was not found"
+    error: "the question with the given ID was not found",
   };
-  it("Given question Id not found", done => {
+  it("Given question Id not found", (done) => {
     request(app)
       .get("/Question/13")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(404)
       .expect(error)
-      .end(err => {
+      .end((err) => {
         if (err) return done(err);
         done();
       });
@@ -44,7 +47,7 @@ describe("in case you dont found your question", () => {
 });
 
 describe("post request to Upvote question", () => {
-  it("increment user votes", done => {
+  it("increment user votes", (done) => {
     request(app)
       .patch("/Question/1/upvote")
       .set("Accept", "application/json")
@@ -54,7 +57,7 @@ describe("post request to Upvote question", () => {
 });
 
 describe("post request to downvote question", () => {
-  it("decremente uservote ", done => {
+  it("decremente uservote ", (done) => {
     request(app)
       .patch("/Question/1/downvote")
       .set("Accept", "application/json")
@@ -66,16 +69,16 @@ describe("post request to downvote question", () => {
 describe("Downvote a non existing question", () => {
   const error = {
     status: 404,
-    error: "the question with the given ID was not found"
+    error: "the question with the given ID was not found",
   };
-  it("not accept an invalid Id", done => {
+  it("not accept an invalid Id", (done) => {
     request(app)
       .patch("/Question/20/downvote")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(404)
       .expect(error)
-      .end(err => {
+      .end((err) => {
         if (err) return done(err);
         done();
       });
@@ -88,9 +91,9 @@ describe("Post a question", () => {
     user: 2,
     meetup: 3,
     tittle: "resolving conflits",
-    body: "how to recreate peace in"
+    body: "how to recreate peace in",
   };
-  it("Create a question", done => {
+  it("Create a question", (done) => {
     request(app)
       .post("/Question")
       .send(Question)
