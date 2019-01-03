@@ -38,10 +38,7 @@ const meetUps = [
 ];
 
 router.get("/upcoming", (req, res, next) => {
-  res.status(200).json({
-    status: 200,
-    data: [meetUps],
-  });
+  
   const current = datetime();
   const upcoming = [];
 
@@ -51,7 +48,10 @@ router.get("/upcoming", (req, res, next) => {
       upcoming.push(meetUps[i]);
     }
   }
-  res.send(upcoming);
+  res.status(200).json({
+    status: 200,
+    data: [upcoming],
+  });
 });
 
 // get requests for user
