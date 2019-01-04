@@ -66,22 +66,22 @@ server.listen(port);
 
 | Ressourse URL         |  Methods   |            Description |
 | --------------------- | :--------: | ---------------------: |
-| /v1/meetup            |  **POST**  |      post a new meetUp |
-| /v1/meetup/<:id>      |  **GET**   |  get ameetUp by his ID |
-| /v1/meetup/upcoming   |  **GET**   | meetUps happening date |
-| /v1/meetup/<:id>      | **PATCH**  |          update meetUp |
-| /v1/meetup            | **DELETE** |   display notification |
-| /v1/Question          |  **POST**  |    post a new Question |
-| /v1/Questio/<:id>     |  **GET**   |  get question by hisID |
-| /v1/Question/upvote   | **PATCH**  |   increment user votes |
-| /v1/Question/downvote | **PATCH**  | decrement user's votes |
-| /v1/meetup/<:id>/rsvp |  **POST**  | opinion attending meet |
-| /v1/user              |  **GET**   |           get all user |
-| /v1/user/<:id>        |  **GET**   |            get user ID |
-| /v1/meetup            | **PATCH**  |   display notification |
-| /v1/Question          | **DELETE** |            delete user |
-| /v1/rsvp/<:id>        |  **GET**   |      get rsvp by hisID |
-| /v1/rsvp/             |  **GET**   |           get all rsvp |
+| /meetUp               |  **POST**  |      post a new meetUp |
+| /meetUp/<:id>         |  **GET**   |  get ameetUp by his ID |
+| /meetUp/upcoming      |  **GET**   | meetUps happening date |
+| /meetUp/<:id>         | **PATCH**  |          update meetUp |
+| /meetUp               | **DELETE** |   display notification |
+| /Question             |  **POST**  |    post a new Question |
+| /Questio/<:id>        |  **GET**   |  get question by hisID |
+| /Question/upvote      | **PATCH**  |   increment user votes |
+| /Question/downvote    | **PATCH**  | decrement user's votes |
+| /meetup/<:id>/rsvp    |  **POST**  | opinion attending meet |
+| /user                 |  **GET**   |           get all user |
+| /user/<:id>           |  **GET**   |            get user ID |
+| /meetUp               | **PATCH**  |   display notification |
+| /Question             | **DELETE** |            delete user |
+| /rsvp/<:id>           |  **GET**   |      get rsvp by hisID |
+| /rsvp/                |  **GET**   |           get all rsvp |
 
 ## User interface
 
