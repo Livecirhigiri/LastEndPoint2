@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+/*
 const userRoutes = require("./api/routes/user");
 
 app.use("/user", userRoutes);
@@ -18,7 +19,7 @@ app.use("/meetUp", meetUpRoutes);
 
 const QuestionRoutes = require("./api/routes/Question");
 
-app.use("/Question", QuestionRoutes);
+app.use("/Question", QuestionRoutes); */
 // appel functions
 const rsvpRoutes = require("./api/routes/rsvp");
 

@@ -41,5 +41,3 @@ describe("Specific rsvp not found", () => {
       });
   });
 });
-
-
