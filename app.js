@@ -16,14 +16,14 @@ app.use("/user", userRoutes);
 const meetUpRoutes = require("./api/routes/meetUp");
 
 app.use("/meetUp", meetUpRoutes);
+const rsvpRoutes = require("./api/routes/rsvp");
+
+app.use("/rsvp", rsvpRoutes); */
 
 const QuestionRoutes = require("./api/routes/Question");
 
-app.use("/Question", QuestionRoutes); */
+app.use("/Question", QuestionRoutes);
 // appel functions
-const rsvpRoutes = require("./api/routes/rsvp");
-
-app.use("/rsvp", rsvpRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("not found ");
