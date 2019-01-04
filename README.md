@@ -64,23 +64,24 @@ server.listen(port);
 
 ## API Endpoints
 
-| Ressourse URL | Methods | Description | | ------------------- | :---------: | --------------------: |
-| /v1/meetup | **POST** | post a new meetUp |
-| /v1/meetup/<:id> | **GET** | get ameetUp by his ID |
-| /v1/meetup/upcoming | **GET** |meetUps happening date |
-| /v1/meetup/<:id> | **PATCH** | update meetUp |
-| /v1/meetup | **DELETE** | display notification |
-| /v1/Question | **POST** | post a new Question |
-| /v1/Questio/<:id> | **GET** | get question by hisID |
-|/v1/Question/upvote | **PATCH** | increment user votes |
-|/v1/Question/downvote| **PATCH** |decrement user's votes |
-|/v1/meetup/<:id>/rsvp| **POST** |opinion attending meet |
-| /v1/user | **GET** |get all user |
-| /v1/user/<:id> | **GET** | get user ID |
-| /v1/meetup | **PATCH** | display notification |
-| /v1/Question | **DELETE** | delete user |
-| /v1/rsvp/<:id> | **GET** | get rsvp by hisID |
-|/v1/rsvp/ | **GET** | get all rsvp |
+| Ressourse URL         |  Methods   |            Description |
+| --------------------- | :--------: | ---------------------: |
+| /v1/meetup            |  **POST**  |      post a new meetUp |
+| /v1/meetup/<:id>      |  **GET**   |  get ameetUp by his ID |
+| /v1/meetup/upcoming   |  **GET**   | meetUps happening date |
+| /v1/meetup/<:id>      | **PATCH**  |          update meetUp |
+| /v1/meetup            | **DELETE** |   display notification |
+| /v1/Question          |  **POST**  |    post a new Question |
+| /v1/Questio/<:id>     |  **GET**   |  get question by hisID |
+| /v1/Question/upvote   | **PATCH**  |   increment user votes |
+| /v1/Question/downvote | **PATCH**  | decrement user's votes |
+| /v1/meetup/<:id>/rsvp |  **POST**  | opinion attending meet |
+| /v1/user              |  **GET**   |           get all user |
+| /v1/user/<:id>        |  **GET**   |            get user ID |
+| /v1/meetup            | **PATCH**  |   display notification |
+| /v1/Question          | **DELETE** |            delete user |
+| /v1/rsvp/<:id>        |  **GET**   |      get rsvp by hisID |
+| /v1/rsvp/             |  **GET**   |           get all rsvp |
 
 ## User interface
 
@@ -96,6 +97,6 @@ Some of ressources I use to build the project
 - [MochaCompleteTutorial](https://www.youtube.com/watch?v=0M2S_7-Tcsc)
 - [APi](https://www.youtube.com/watch?v=pKd0Rpw7O48)
 
-## License
+# License
 
 Ir. © Live C.
