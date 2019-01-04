@@ -9,10 +9,21 @@ const bodyParser = require("body-parser");
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+/* const userRoutes = require("./api/routes/user");
 
+app.use("/user", userRoutes);
+
+const rsvpRoutes = require("./api/routes/rsvp");
+
+app.use("/rsvp", rsvpRoutes);
+const QuestionRoutes = require("./api/routes/Question");
+
+app.use("/Question", QuestionRoutes); */
 const meetUpRoutes = require("./api/routes/meetUp");
 
 app.use("/meetUp", meetUpRoutes);
+
+// appel function
 
 app.use((req, res, next) => {
   const error = new Error("not found ");
